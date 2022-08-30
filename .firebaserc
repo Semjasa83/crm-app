@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "simple-crm-a965c": {
+      "hosting": {
+        "crm-app": [
+          "simple-crm-a965c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "simple-crm-a965c"
+  }
+}
