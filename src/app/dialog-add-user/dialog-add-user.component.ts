@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/models/user.class';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Firestore, collectionData } from '@angular/fire/firestore';
 import { doc, setDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore"; 
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -23,11 +24,11 @@ export class DialogAddUserComponent implements OnInit {
     this.user.birthDate = this.birthDate.getTime();
     console.log('CurrentUser', this.user);
 
-    await setDoc(doc(this.firestore, "users"), this.user)
-    .then((result: any) => { console.log('adding user finished', result)
-   })
-    .catch((e) => {console.error('error: ', e);
-    });
+    const coll = collection(this.firestore, 'users');
+
+    await addDoc( coll, this.user.toJSON())
+    /*.catch((e) => {console.error('error: ', e);
+    })*/;
 
   }
 }
