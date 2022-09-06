@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
 
   user = new User();  
   allUsers$: Observable<any>;
-  allUsers: any = [];
+  allUsers = [];
 
   
   constructor(public dialog: MatDialog, private firestore: Firestore) { 
