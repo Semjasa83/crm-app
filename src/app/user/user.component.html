@@ -1,8 +1,7 @@
 <mat-card>
     <table class="user-table">
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Status</th>
             <th>Module</th>  
@@ -11,8 +10,7 @@
             <th>Street</th>
         </tr>
         <tr *ngFor= "let user of allUsers">
-            <td>{{ user.firstname }}</td>
-            <td>{{ user.lastname }}</td>
+            <td>{{ user.firstname }}, {{ user.lastname }}</td>
             <td></td>
             <td></td>
             <td></td>
