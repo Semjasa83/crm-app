@@ -15,8 +15,9 @@ export class UserComponent implements OnInit {
 
   user = new User();  
   allUsers$: Observable<any>;
-  allUsers = [];
+  allUsers: any = [];
 
+  
   constructor(public dialog: MatDialog, private firestore: Firestore) { 
 
     const coll = collection(firestore, 'users');
@@ -25,13 +26,16 @@ export class UserComponent implements OnInit {
     this.allUsers$.subscribe((changes: any) => {
       console.log('received changes:', changes);
       this.allUsers = changes;
-      console.log(this.allUsers);
+      console.log('allUsers: ', this.allUsers);
     })
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  pullData() {
+    
   }
+
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
