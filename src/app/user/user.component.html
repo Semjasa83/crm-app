@@ -8,11 +8,11 @@
             <th>Street</th>
         </tr>
         <tr *ngFor= "let user of allUsers">
-            <td>{{ user.firstname }}, {{ user.lastname }}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ user.firstName }}, {{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.city }}</td>
+            <td>{{ user.zipCode }}</td>
+            <td>{{ user.street }}</td>
         </tr>
 
     </table>
