@@ -1,6 +1,6 @@
 .user-detail-header {
     background-color: #f3ad2b;
-    min-height: 16rem;
+    min-height: 12rem;
     color: white;
     display: flex;
     align-items: flex-end;
@@ -21,4 +21,10 @@
             margin-bottom: 0;
         }
     }
+}
+
+.pin-right-upper-corner {
+    position: absolute;
+    right: 0;
+    top: 0;
 }

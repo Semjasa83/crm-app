@@ -13,28 +13,35 @@ import { User } from 'src/models/user.class';
 export class UserDetailComponent implements OnInit {
 
 
-userId: any = '';
-user: User = new User();
+  userId: any = '';
+  user: User = new User();
 
-  constructor(private route: ActivatedRoute, private firestore: Firestore) { 
+  constructor(private route: ActivatedRoute, private firestore: Firestore) {
 
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe( paramMap => {
+    this.route.paramMap.subscribe(paramMap => {
       this.userId = paramMap.get('id');
       console.log('GOT ID', this.userId);
       this.getUser();
-  })
+    })
   }
 
   async getUser() {
     const unsub = onSnapshot(doc(this.firestore, "users", this.userId), (u) => {
       this.user = new User(u.data());
       console.log("Current data: ", u.data());
-  });
+    });
   }
 
+  editUserDetail() {
+
+  }
+
+  editUserAddress() {
+
   }
 
 
+}
