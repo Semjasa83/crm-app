@@ -11,15 +11,18 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 export class DialogEditUserComponent implements OnInit {
 
   user: User = new User;
+  userId: any;
   loading = false;
+  birthDate!: Date;
 
-  constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>) { }
+  constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>, private firestore: Firestore) { }
 
   ngOnInit(): void {
   }
 
   saveUser() {
-
+    this.loading = true;
+    
   }
 
 }

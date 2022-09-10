@@ -28,6 +28,7 @@ export class UserComponent implements OnInit {
 
     this.allUsers$.subscribe((changes: any) => {
       console.log('received changes:', changes);
+      
       this.allUsers = changes;
       console.log('allUsers: ', this.allUsers);
     })

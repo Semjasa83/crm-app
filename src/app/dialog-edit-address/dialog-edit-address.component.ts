@@ -12,14 +12,28 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 export class DialogEditAddressComponent implements OnInit {
 
   user: User = new User;
+  userId: any;
   loading = false;
 
-  constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>) { }
+  constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>, private firestore: Firestore) { }
 
   ngOnInit(): void {
+    console.log('user', this.user);
+    console.log('userID', this.userId);
   }
 
   saveUser() {
+    this.loading = true;
+/*this.firestore
+.collection('users')
+.doc(this.userId)
+.update(this.user.toJSON());
+
+    .then(() => {
+      this.loading = false;
+      this.dialogRef.close();
+    });
+*/
 
   }
 
