@@ -26,7 +26,7 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
       this.userId = paramMap.get('id');
-      console.log('GOT ID', this.userId);
+      //console.log('GOT ID', this.userId);  // _____CONSOLE
       this.getUser();
     })
   }
@@ -34,7 +34,8 @@ export class UserDetailComponent implements OnInit {
   async getUser() {
     const unsub = onSnapshot(doc(this.firestore, "users", this.userId), (u) => {
       this.user = new User(u.data());
-      console.log("Current data: ", u.data());
+      this.user.id = this.userId;
+      //console.log("Current data: ", u.data());    // _____CONSOLE
     });
   }
 

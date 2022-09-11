@@ -27,10 +27,10 @@ export class UserComponent implements OnInit {
     this.allUsers$ = collectionData(coll, {idField: "userId"});
 
     this.allUsers$.subscribe((changes: any) => {
-      console.log('received changes:', changes);
+      //console.log('received changes:', changes);    // _____CONSOLE
       
       this.allUsers = changes;
-      console.log('allUsers: ', this.allUsers);
+      //console.log('allUsers: ', this.allUsers);     // _____CONSOLE
     })
 
   }
