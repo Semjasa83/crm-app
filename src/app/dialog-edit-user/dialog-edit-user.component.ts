@@ -3,6 +3,7 @@ import { User } from 'src/models/user.class';
 import { Firestore, collectionData } from '@angular/fire/firestore';
 import { collection, addDoc } from "firebase/firestore";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { doc, updateDoc } from "firebase/firestore";
 @Component({
   selector: 'app-dialog-edit-user',
   templateUrl: './dialog-edit-user.component.html',
@@ -10,7 +11,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class DialogEditUserComponent implements OnInit {
 
-  user: User = new User;
+  user!: User;
   userId: any;
   loading = false;
   birthDate!: Date;
@@ -20,9 +21,19 @@ export class DialogEditUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveUser() {
+  async saveUser() {
     this.loading = true;
     
+    const editData = doc(this.firestore, "users", this.userId);
+    await updateDoc(editData, {
+      firstName: this.user.firstName,
+      lastName: this.user.lastName,
+      email: this.user.email,
+      }).then(() => {
+        this.loading = false;
+        this.dialogRef.close();
+      })
+      ;
   }
 
 }
